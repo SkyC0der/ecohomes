@@ -12,7 +12,6 @@ import Copy from "../Copy/Copy";
 
 import { RiLinkedinBoxLine } from "react-icons/ri";
 import { RiInstagramLine } from "react-icons/ri";
-import { RiDribbbleLine } from "react-icons/ri";
 import { RiYoutubeLine } from "react-icons/ri";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -129,9 +128,6 @@ const Footer = () => {
               </div>
               <div className="icon">
                 <RiInstagramLine />
-              </div>
-              <div className="icon">
-                <RiDribbbleLine />
               </div>
               <div className="icon">
                 <RiYoutubeLine />
