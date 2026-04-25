@@ -18,12 +18,14 @@ import CTAWindow from "@/components/CTAWindow/CTAWindow";
 import Copy from "@/components/Copy/Copy";
 
 let isInitialLoad = true;
+const HERO_IMAGE_SRC =
+  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2600&q=85";
 gsap.registerPlugin(ScrollTrigger, CustomEase);
 CustomEase.create("hop", "0.9, 0, 0.1, 1");
 
 export default function Home() {
   const tagsRef = useRef(null);
-  const [showPreloader, setShowPreloader] = useState(isInitialLoad);
+  const [showPreloader] = useState(isInitialLoad);
   const [loaderAnimating, setLoaderAnimating] = useState(false);
   const lenis = useLenis();
 
@@ -44,97 +46,169 @@ export default function Home() {
   }, [lenis, loaderAnimating]);
 
   useGSAP(() => {
+    if (!showPreloader) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    setLoaderAnimating(true);
+
+    if (reduceMotion) {
+      gsap.set(".loader", { autoAlpha: 0, pointerEvents: "none" });
+      setLoaderAnimating(false);
+      return;
+    }
+
+    const loader = document.querySelector(".loader");
+    const loaderBrand = document.querySelector(".loader-brand");
+    const loaderMedia = document.querySelector(".loader-media");
+    const loaderMediaImg = document.querySelector(".loader-media img");
+    const loaderScrim = document.querySelector(".loader-media-scrim");
+    const heroImg = document.querySelector(".hero .hero-bg img");
+
+    if (
+      !loader ||
+      !loaderBrand ||
+      !loaderMedia ||
+      !loaderMediaImg ||
+      !loaderScrim ||
+      !heroImg
+    ) {
+      setLoaderAnimating(false);
+      return;
+    }
+
+    const tileRect = loaderMedia.getBoundingClientRect();
+    const tileWidth = tileRect.width;
+    const tileHeight = tileRect.height;
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.visualViewport?.height || window.innerHeight;
+    const morphScale =
+      Math.max(viewportWidth / tileWidth, viewportHeight / tileHeight) * 1.05;
+    const morphOffsetX =
+      viewportWidth / 2 - (tileRect.left + tileWidth / 2);
+    const morphOffsetY =
+      viewportHeight / 2 - (tileRect.top + tileHeight / 2);
+
+    gsap.set(".loader-brand-word span", { yPercent: 115 });
+    gsap.set(loaderMedia, {
+      width: "3px",
+      height: tileHeight,
+      autoAlpha: 1,
+      scale: 1,
+      borderRadius: 0,
+      transformOrigin: "center center",
+    });
+    gsap.set(loaderMediaImg, {
+      scale: 1.24,
+      transformOrigin: "center center",
+    });
+    gsap.set(heroImg, { scale: 1.08 });
+
     const tl = gsap.timeline({
-      delay: 0.3,
+      delay: 0.2,
       defaults: {
         ease: "hop",
       },
+      onComplete: () => {
+        gsap.set(loader, { autoAlpha: 0, pointerEvents: "none" });
+        setLoaderAnimating(false);
+      },
     });
 
-    if (showPreloader) {
-      setLoaderAnimating(true);
-      const counts = document.querySelectorAll(".count");
-
-      counts.forEach((count, index) => {
-        const digits = count.querySelectorAll(".digit h1");
-
-        tl.to(
-          digits,
-          {
-            y: "0%",
-            duration: 1,
-            stagger: 0.075,
-          },
-          index * 1
-        );
-
-        if (index < counts.length) {
-          tl.to(
-            digits,
-            {
-              y: "-100%",
-              duration: 1,
-              stagger: 0.075,
-            },
-            index * 1 + 1
-          );
-        }
-      });
-
-      tl.to(".spinner", {
-        opacity: 0,
-        duration: 0.3,
-      });
-
-      tl.to(
-        ".word h1",
+    tl.to(".loader-brand-word span", {
+      yPercent: 0,
+      duration: 1.4,
+      stagger: 0.12,
+    })
+      .to(
+        loaderMedia,
         {
-          y: "0%",
-          duration: 1,
+          width: tileWidth,
+          duration: 1.05,
+          ease: "power4.inOut",
+          autoRound: false,
+        },
+        "<+=0.55"
+      )
+      .to(
+        loaderMediaImg,
+        {
+          scale: 1.12,
+          duration: 1.15,
+          ease: "power3.out",
+        },
+        "<"
+      )
+      .to(
+        ".loader-brand-word span",
+        {
+          yPercent: -115,
+          duration: 1.0,
+          stagger: {
+            each: 0.06,
+            from: "edges",
+          },
+        },
+        "+=0.35"
+      )
+      .to(
+        loaderMedia,
+        {
+          scale: morphScale,
+          x: morphOffsetX,
+          y: morphOffsetY,
+          duration: 1.4,
+          ease: "power4.inOut",
+        },
+        "<+=0.18"
+      )
+      .to(
+        loaderMediaImg,
+        {
+          scale: 1,
+          duration: 1.4,
+          ease: "power3.inOut",
+        },
+        "<"
+      )
+      .to(
+        loaderScrim,
+        {
+          opacity: 1,
+          duration: 1.0,
+          ease: "power2.inOut",
+        },
+        "<+=0.4"
+      )
+      .to(
+        loader,
+        {
+          backgroundColor: "rgba(244, 243, 241, 0)",
+          duration: 0.6,
+          ease: "power2.out",
+        },
+        ">-0.05"
+      )
+      .to(
+        loader,
+        {
+          autoAlpha: 0,
+          duration: 0.4,
+          ease: "power1.out",
+        },
+        ">-0.1"
+      )
+      .to(
+        heroImg,
+        {
+          scale: 1,
+          duration: 1.8,
+          ease: "power3.out",
         },
         "<"
       );
-
-      tl.to(".divider", {
-        scaleY: "100%",
-        duration: 1,
-        onComplete: () =>
-          gsap.to(".divider", { opacity: 0, duration: 0.3, delay: 0.3 }),
-      });
-
-      tl.to("#word-1 h1", {
-        y: "100%",
-        duration: 1,
-        delay: 0.3,
-      });
-
-      tl.to(
-        "#word-2 h1",
-        {
-          y: "-100%",
-          duration: 1,
-        },
-        "<"
-      );
-
-      tl.to(
-        ".block",
-        {
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-          duration: 1,
-          stagger: 0.1,
-          delay: 0.75,
-          onStart: () => {
-            gsap.to(".hero-img", { scale: 1, duration: 2, ease: "hop" });
-          },
-          onComplete: () => {
-            gsap.set(".loader", { pointerEvents: "none" });
-            setLoaderAnimating(false);
-          },
-        },
-        "<"
-      );
-    }
   }, [showPreloader]);
 
   useGSAP(
@@ -164,64 +238,16 @@ export default function Home() {
     <>
       {showPreloader && (
         <div className="loader">
-          <div className="overlay">
-            <div className="block"></div>
-            <div className="block"></div>
-          </div>
-          <div className="intro-logo">
-            <div className="word" id="word-1">
-              <h1>
-                <span>Eco Homes</span>
-              </h1>
+          <div className="loader-brand" aria-label="Eco Homes">
+            <div className="loader-brand-word">
+              <span>Eco</span>
             </div>
-            <div className="word" id="word-2">
-              <h1>Private</h1>
+            <div className="loader-media">
+              <img src={HERO_IMAGE_SRC} alt="" />
+              <div className="loader-media-scrim" />
             </div>
-          </div>
-          <div className="divider"></div>
-          <div className="spinner-container">
-            <div className="spinner"></div>
-          </div>
-          <div className="counter">
-            <div className="count">
-              <div className="digit">
-                <h1>0</h1>
-              </div>
-              <div className="digit">
-                <h1>0</h1>
-              </div>
-            </div>
-            <div className="count">
-              <div className="digit">
-                <h1>2</h1>
-              </div>
-              <div className="digit">
-                <h1>7</h1>
-              </div>
-            </div>
-            <div className="count">
-              <div className="digit">
-                <h1>6</h1>
-              </div>
-              <div className="digit">
-                <h1>5</h1>
-              </div>
-            </div>
-            <div className="count">
-              <div className="digit">
-                <h1>9</h1>
-              </div>
-              <div className="digit">
-                <h1>8</h1>
-              </div>
-            </div>
-            <div className="count">
-              <div className="digit">
-                <h1>9</h1>
-              </div>
-              <div className="digit">
-                <h1>9</h1>
-              </div>
+            <div className="loader-brand-word">
+              <span>Homes</span>
             </div>
           </div>
         </div>
@@ -230,7 +256,7 @@ export default function Home() {
       <section className="hero">
         <div className="hero-bg">
           <img
-            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2600&q=85"
+            src={HERO_IMAGE_SRC}
             alt="Cinematic luxury estate at golden hour"
           />
         </div>
@@ -239,12 +265,12 @@ export default function Home() {
         <div className="container">
           <div className="hero-content">
             <div className="hero-header">
-              <Copy animateOnScroll={false} delay={showPreloader ? 10 : 0.85}>
+              <Copy animateOnScroll={false} delay={showPreloader ? 4.15 : 0.85}>
                 <h1>Private access to America&apos;s most exceptional homes</h1>
               </Copy>
             </div>
             <div className="hero-tagline">
-              <Copy animateOnScroll={false} delay={showPreloader ? 10.15 : 1}>
+              <Copy animateOnScroll={false} delay={showPreloader ? 4.3 : 1}>
                 <p>
                   Eco Homes advises discerning buyers, sellers, and developers
                   through confidential luxury property acquisitions across
@@ -256,7 +282,7 @@ export default function Home() {
               label="View Private Listings"
               route="/spaces"
               animateOnScroll={false}
-              delay={showPreloader ? 10.3 : 1.15}
+              delay={showPreloader ? 4.45 : 1.15}
             />
           </div>
         </div>

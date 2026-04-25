@@ -28,7 +28,7 @@
 }
 
 .top-bar.scrolled .top-bar-brand {
-  color: var(--accent-bronze);
+  color: var(--accent-frost);
 }
 
 @media (max-width: 1000px) {
