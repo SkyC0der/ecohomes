@@ -284,10 +284,18 @@ const Nav = () => {
                   <h2>Private Listings</h2>
                 </a>
               </div>
-              <div className={`link${pathname === "/sample-space" ? " active" : ""}`}>
+              <div className={`link${pathname === "/neighbourhoods" ? " active" : ""}`}>
                 <a
-                  href="/sample-space"
-                  onClick={(e) => handleLinkClick(e, "/sample-space")}
+                  href="/neighbourhoods"
+                  onClick={(e) => handleLinkClick(e, "/neighbourhoods")}
+                >
+                  <h2>Neighbourhoods</h2>
+                </a>
+              </div>
+              <div className={`link${pathname.startsWith("/properties") || pathname === "/sample-space" ? " active" : ""}`}>
+                <a
+                  href="/properties/ikoyi-waterfront-penthouse"
+                  onClick={(e) => handleLinkClick(e, "/properties/ikoyi-waterfront-penthouse")}
                 >
                   <h2>Featured Estate</h2>
                 </a>
@@ -297,7 +305,7 @@ const Nav = () => {
                   href="/blueprints"
                   onClick={(e) => handleLinkClick(e, "/blueprints")}
                 >
-                  <h2>Gallery</h2>
+                  <h2>Media Rooms</h2>
                 </a>
               </div>
               <div className={`link${pathname === "/connect" ? " active" : ""}`}>
@@ -315,13 +323,13 @@ const Nav = () => {
               <div className="sub-col">
                 <div className="menu-meta menu-commissions">
                   <p>Private Advisory</p>
-                  <p>advisory@ecohomes.com</p>
-                  <p>+1 (310) 555-0198</p>
+                  <p>hello@studioeco.co</p>
+                  <p>+234 915 000 4210</p>
                 </div>
                 <div className="menu-meta">
-                  <p>West Coast Office</p>
-                  <p>9460 Wilshire Boulevard</p>
-                  <p>Beverly Hills, CA 90212</p>
+                  <p>Lagos Office</p>
+                  <p>12A Akin Adesola Street</p>
+                  <p>Victoria Island, Lagos</p>
                 </div>
               </div>
               <div className="sub-col">

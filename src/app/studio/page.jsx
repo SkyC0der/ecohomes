@@ -35,7 +35,7 @@ const page = () => {
               </Copy>
               <div className="studio-hero-hero-img">
                 <img
-                  src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1800&q=85"
+                  src="/studio/about-hero.png"
                   alt="Editorial luxury residence interior"
                 />
               </div>
@@ -84,7 +84,7 @@ const page = () => {
           </div>
         </section>
         <CTAWindow
-          img="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2200&q=85"
+          img="/studio/about-cta-window.jpg"
           header="Private Advisory"
           callout="Representation for buyers, sellers, and developers"
           description="From quiet acquisitions to pre-market positioning, Eco Homes builds a bespoke plan around confidentiality, timing, and long-term value."

@@ -55,7 +55,7 @@ const Footer = () => {
                 </Copy>
               </div>
               <Copy delay={0.2}>
-                <h2>Private access to remarkable homes, estates, and investment addresses.</h2>
+                <h2>Private access to remarkable Lagos homes, estates, and investment addresses.</h2>
               </Copy>
             </div>
           </div>
@@ -90,10 +90,19 @@ const Footer = () => {
                   <h3>Private Listings</h3>
                 </a>
                 <a
-                  href="/sample-space"
+                  href="/neighbourhoods"
                   onClick={(e) => {
                     e.preventDefault();
-                    navigateWithTransition("/sample-space");
+                    navigateWithTransition("/neighbourhoods");
+                  }}
+                >
+                  <h3>Neighbourhoods</h3>
+                </a>
+                <a
+                  href="/properties/ikoyi-waterfront-penthouse"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateWithTransition("/properties/ikoyi-waterfront-penthouse");
                   }}
                 >
                   <h3>Featured Estate</h3>
@@ -105,7 +114,7 @@ const Footer = () => {
                     navigateWithTransition("/blueprints");
                   }}
                 >
-                  <h3>Gallery</h3>
+                  <h3>Media Rooms</h3>
                 </a>
                 <a
                   href="/connect"
@@ -137,8 +146,8 @@ const Footer = () => {
           <div className="footer-meta-col">
             <Copy delay={0.1}>
               <p>
-                We represent discerning buyers, sellers, and developers with
-                discretion, editorial presentation, and market intelligence.
+                We represent discerning Lagos buyers, sellers, and developers
+                with discretion, editorial presentation, and market intelligence.
               </p>
             </Copy>
           </div>

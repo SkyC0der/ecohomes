@@ -1,35 +1,31 @@
 const featuredProjectsContent = [
   {
-    info: "$28.5M private coastal estate in Malibu",
-    title: "Carbon Beach Residence",
+    info: "₦650M private waterfront apartment in Ikoyi",
+    title: "Ikoyi Waterfront Penthouse",
     description:
-      "A gated oceanfront address with cinematic living spaces, resort-grade wellness amenities, and sunset-facing entertaining terraces.",
-    image:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1800&q=85",
+      "A full-floor residence with lagoon views, private lift access, and calm entertaining spaces for discreet Lagos living.",
+    image: "/featured-projects/featured-work-2.jpg",
   },
   {
-    info: "$17.2M modern compound in Paradise Valley",
-    title: "Camelback Modern",
+    info: "₦480M townhouse-style duplex in Ikoyi",
+    title: "Ikoyi Townhouse Duplex",
     description:
-      "Architectural desert living with gallery walls, guest casita, negative-edge pool, and discreet arrival sequence for privacy-minded owners.",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85",
+      "A quiet Ikoyi residence with generous reception rooms, staff quarters, and a polished plan for family privacy.",
+    image: "/featured-projects/featured-work-1.jpg",
   },
   {
-    info: "$12.8M penthouse above the West Village",
-    title: "Hudson Atelier Penthouse",
+    info: "₦350M rooftop duplex in Victoria Island",
+    title: "VI Rooftop Duplex",
     description:
-      "A full-floor residence with private elevator access, skyline terraces, custom millwork, and a collector-grade entertaining plan.",
-    image:
-      "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=1800&q=85",
+      "A city-facing duplex with a private rooftop terrace, flexible study space, and fast access to VI and Lagos Island.",
+    image: "/featured-projects/featured-work-3.jpg",
   },
   {
-    info: "$21.4M lakefront retreat in Austin",
-    title: "Lake Travis Reserve",
+    info: "₦180M family duplex near Lekki conservation corridor",
+    title: "Lekki Conservation Duplex",
     description:
-      "A secluded waterfront estate with boat access, spa pavilion, chef's kitchen, and generous indoor-outdoor entertaining zones.",
-    image:
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1800&q=85",
+      "A contemporary home near schools and retail, planned for family privacy and weekend entertaining.",
+    image: "/featured-projects/featured-work-4.jpg",
   },
 ];
 

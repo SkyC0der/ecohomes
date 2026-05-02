@@ -266,7 +266,7 @@ export default function Home() {
           <div className="hero-content">
             <div className="hero-header">
               <Copy animateOnScroll={false} delay={showPreloader ? 4.15 : 0.85}>
-                <h1>Private access to America&apos;s most exceptional homes</h1>
+                <h1>Private access to Lagos&apos; most exceptional homes</h1>
               </Copy>
             </div>
             <div className="hero-tagline">
@@ -274,7 +274,7 @@ export default function Home() {
                 <p>
                   Eco Homes advises discerning buyers, sellers, and developers
                   through confidential luxury property acquisitions across
-                  premier US markets.
+                  Lagos&apos; most desirable neighbourhoods.
                 </p>
               </Copy>
             </div>
@@ -297,20 +297,20 @@ export default function Home() {
               <div className="stat-divider"></div>
               <div className="stat-info">
                 <Copy delay={0.15}>
-                  <p>Years advising luxury clients</p>
+                  <p>Years advising private Lagos clients</p>
                 </Copy>
               </div>
             </div>
             <div className="stat">
               <div className="stat-count">
                 <Copy delay={0.2}>
-                  <h2>$4.8B</h2>
+                  <h2>₦420B</h2>
                 </Copy>
               </div>
               <div className="stat-divider"></div>
               <div className="stat-info">
                 <Copy delay={0.25}>
-                  <p>Closed and advised sales volume</p>
+                  <p>Closed and advised transaction value</p>
                 </Copy>
               </div>
             </div>
@@ -323,7 +323,7 @@ export default function Home() {
               <div className="stat-divider"></div>
               <div className="stat-info">
                 <Copy delay={0.35}>
-                  <p>Private residences represented</p>
+                  <p>Lagos residences and land assets represented</p>
                 </Copy>
               </div>
             </div>
@@ -349,7 +349,7 @@ export default function Home() {
             <Copy delay={0.1}>
               <h1>
                 <span className="spacer">&nbsp;</span>
-                Eco Homes curates prime residences with the discretion of
+                Eco Homes curates prime Lagos residences with the discretion of
                 private banking, the eye of an architectural editor, and the
                 urgency of a deal team.
               </h1>
@@ -364,7 +364,7 @@ export default function Home() {
               <Copy delay={0.15}>
                 <p className="lg">
                   Every mandate begins with a confidential brief, market
-                  intelligence, and a clear acquisition or sale strategy. The
+                  intelligence, and a clear Lagos acquisition or sale strategy. The
                   experience is highly edited, calm, and built around serious
                   decisions.
                 </p>
@@ -373,13 +373,13 @@ export default function Home() {
             <div className="what-we-do-col">
               <div className="what-we-do-tags" ref={tagsRef}>
                 <div className="what-we-do-tag">
-                  <h3>Off-market</h3>
+                  <h3>Ikoyi</h3>
                 </div>
                 <div className="what-we-do-tag">
-                  <h3>Waterfront</h3>
+                  <h3>Lekki Phase 1</h3>
                 </div>
                 <div className="what-we-do-tag">
-                  <h3>New development</h3>
+                  <h3>Victoria Island</h3>
                 </div>
                 <div className="what-we-do-tag">
                   <h3>Private tours</h3>
@@ -388,7 +388,7 @@ export default function Home() {
                   <h3>Investor ready</h3>
                 </div>
                 <div className="what-we-do-tag">
-                  <h3>Discreet sale</h3>
+                  <h3>Land advisory</h3>
                 </div>
               </div>
             </div>
@@ -399,12 +399,12 @@ export default function Home() {
         <div className="container">
           <div className="featured-projects-header-callout">
             <Copy delay={0.1}>
-              <p>Featured private listings</p>
+              <p>Featured Lagos listings</p>
             </Copy>
           </div>
           <div className="featured-projects-header">
             <Copy delay={0.15}>
-              <h2>Architectural homes selected for privacy, provenance, and long-term value</h2>
+              <h2>Lagos homes selected for privacy, location strength, and long-term value</h2>
             </Copy>
           </div>
         </div>
@@ -458,12 +458,12 @@ export default function Home() {
             <div className="gallery-callout-copy">
               <Copy delay={0.1}>
                 <h3>
-                  Explore a curated visual archive of estates, penthouses, and
-                  developer residences selected for architectural quality,
-                  privacy, and lifestyle value.
+                  Enter a curated media archive of private Lagos residences
+                  selected for architectural quality, buyer discretion, and
+                  long-term lifestyle value.
                 </h3>
               </Copy>
-              <AnimatedButton label="Explore Gallery" route="blueprints" />
+              <AnimatedButton label="View Media Rooms" route="blueprints" />
             </div>
           </div>
         </div>
@@ -471,8 +471,8 @@ export default function Home() {
       <CTAWindow
         img="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=2200&q=85"
         header="Eco Homes"
-        callout="Your next address should never feel public"
-        description="Book a private consultation for confidential search, seller representation, or developer positioning across the luxury US market."
+        callout="Your next Lagos address should never feel public"
+        description="Book a private consultation for confidential search, seller representation, or developer positioning across the luxury Lagos market."
       />
       <ConditionalFooter />
     </>

@@ -1,0 +1,97 @@
+.neighbourhood-card {
+  width: 100%;
+  color: var(--text-main);
+  border: 1px solid var(--border-soft);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  background: rgba(242, 237, 230, 0.04);
+}
+
+.neighbourhood-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.neighbourhood-card-header p,
+.neighbourhood-grid p {
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.neighbourhood-card h3 {
+  font-size: 2rem;
+  letter-spacing: -0.04rem;
+}
+
+.neighbourhood-score {
+  min-width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--accent-bronze);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--accent-frost);
+}
+
+.neighbourhood-score span {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.neighbourhood-vibe {
+  color: var(--base-200);
+  margin-bottom: 1.5rem;
+}
+
+.neighbourhood-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.neighbourhood-grid ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.neighbourhood-grid li {
+  color: var(--base-200);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.neighbourhood-meta,
+.neighbourhood-best-for {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.neighbourhood-meta span,
+.neighbourhood-best-for span {
+  color: var(--base-200);
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 1000px) {
+  .neighbourhood-card {
+    padding: 1rem;
+  }
+
+  .neighbourhood-card-header,
+  .neighbourhood-grid {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+}

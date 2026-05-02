@@ -27,44 +27,44 @@ const Spotlight = () => {
 
   const spotlightItems = [
     {
-      name: "Malibu Oceanfront",
-      img: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1400&q=85",
+      name: "Ikoyi Waterfront",
+      img: "/featured-projects/featured-work-2.jpg",
     },
     {
-      name: "Aspen Glass House",
-      img: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1400&q=85",
+      name: "Lekki Phase 1",
+      img: "/spaces/space-1.jpg",
     },
     {
-      name: "Hudson Penthouse",
-      img: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1400&q=85",
+      name: "Victoria Island",
+      img: "/featured-projects/featured-work-3.jpg",
     },
     {
-      name: "Paradise Valley",
-      img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85",
+      name: "Ikeja GRA",
+      img: "/spaces/space-4.jpg",
     },
     {
-      name: "Lake Travis",
-      img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85",
+      name: "Magodo",
+      img: "/spaces/space-5.jpg",
     },
     {
-      name: "NoMad Loft",
-      img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=85",
+      name: "Yaba",
+      img: "/spaces/space-3.jpg",
     },
     {
-      name: "Kiawah Preserve",
-      img: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=85",
+      name: "Ajah",
+      img: "/spaces/space-6.jpg",
     },
     {
-      name: "Beverly Hills",
-      img: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85",
+      name: "Banana Island",
+      img: "/sample-space/hero.jpg",
     },
     {
-      name: "Palm Beach",
-      img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=85",
+      name: "Oniru",
+      img: "/gallery-callout/gallery-callout-2.jpg",
     },
     {
-      name: "Napa Retreat",
-      img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85",
+      name: "Surulere",
+      img: "/archive/archive-12.jpg",
     },
   ];
 
@@ -325,7 +325,7 @@ const Spotlight = () => {
         </div>
         <div className="spotlight-bg-img">
           <img
-            src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1800&q=85"
+            src="/featured-projects/featured-work-2.jpg"
             alt=""
           />
         </div>

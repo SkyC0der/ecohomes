@@ -15,7 +15,7 @@ const page = () => {
             <div className="contact-col">
               <div className="contact-hero-header">
                 <Copy delay={0.85}>
-                  <h1>Begin with a private consultation</h1>
+                  <h1>Begin with a private Lagos consultation</h1>
                 </Copy>
               </div>
               <div className="contact-copy-year">
@@ -29,21 +29,21 @@ const page = () => {
                 <div className="contact-info-block">
                   <Copy delay={0.85}>
                     <p>Private Desk</p>
-                    <p>concierge@ecohomes.com</p>
+                    <p>hello@studioeco.co</p>
                   </Copy>
                 </div>
                 <div className="contact-info-block">
                   <Copy delay={1}>
                     <p>Buyer and Seller Advisory</p>
-                    <p>advisory@ecohomes.com</p>
-                    <p>+1 (310) 555-0198</p>
+                    <p>advisory@studioeco.co</p>
+                    <p>+234 915 000 4210</p>
                   </Copy>
                 </div>
                 <div className="contact-info-block">
                   <Copy delay={1.15}>
                     <p>Office Location</p>
-                    <p>9460 Wilshire Boulevard</p>
-                    <p>Beverly Hills, CA 90212</p>
+                    <p>12A Akin Adesola Street</p>
+                    <p>Victoria Island, Lagos</p>
                   </Copy>
                 </div>
                 <div className="contact-info-block">

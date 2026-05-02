@@ -3,9 +3,9 @@ import ClientLayout from "@/client-layout";
 import TopBar from "@/components/TopBar/TopBar";
 
 export const metadata = {
-  title: "Eco Homes | Luxury US Real Estate",
+  title: "Eco Homes | Luxury Lagos Real Estate",
   description:
-    "Private luxury real estate advisory for high-value homes, estates, and investment properties across the United States.",
+    "Private luxury real estate advisory for high-value homes, estates, and investment properties across Lagos, Nigeria.",
 };
 
 export default function RootLayout({ children }) {

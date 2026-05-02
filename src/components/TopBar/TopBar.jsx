@@ -96,7 +96,7 @@ const TopBar = () => {
         </a>
       </div>
       <div className="top-bar-cta">
-        <AnimatedButton label="Private Consultation" route="/connect" animate={false} />
+        <AnimatedButton label="Book Consultation" route="/connect" animate={false} />
       </div>
     </div>
   );

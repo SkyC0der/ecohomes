@@ -1,0 +1,98 @@
+[
+  {
+    "area": "Lekki Phase 1",
+    "safetyScore": 8.2,
+    "vibeTag": "Family-friendly and upscale",
+    "amenities": ["Admiralty Way retail", "Filmhouse IMAX", "The Lennox Mall", "Evercare Hospital"],
+    "commuteTimes": { "Lagos Island": "35-55 min", "Ajah": "15-25 min", "Victoria Island": "25-40 min" },
+    "floodRisk": "Medium in select streets",
+    "powerSupply": "Good with estate backup",
+    "internet": "Fiber available",
+    "priceDirection": "Rising",
+    "bestFor": ["Young professionals", "Families", "Diaspora buyers"]
+  },
+  {
+    "area": "Ikoyi",
+    "safetyScore": 9.1,
+    "vibeTag": "Private, established, and diplomatic",
+    "amenities": ["Ikoyi Club 1938", "Dolphin Estate shops", "St Saviour's School", "Lagoon hospitals"],
+    "commuteTimes": { "Victoria Island": "10-20 min", "Lagos Island": "15-30 min", "Lekki Phase 1": "25-45 min" },
+    "floodRisk": "Low to medium near waterfront pockets",
+    "powerSupply": "Very good with private backup",
+    "internet": "Fiber widely available",
+    "priceDirection": "Rising",
+    "bestFor": ["Executives", "Family offices", "Expats"]
+  },
+  {
+    "area": "Victoria Island",
+    "safetyScore": 8.4,
+    "vibeTag": "Commercial, polished, and connected",
+    "amenities": ["Eko Hotel", "The Palms access", "Terra Kulture", "Corporate offices"],
+    "commuteTimes": { "Ikoyi": "10-20 min", "Lekki Phase 1": "20-40 min", "Lagos Island": "15-30 min" },
+    "floodRisk": "Medium",
+    "powerSupply": "Good with building backup",
+    "internet": "Fiber widely available",
+    "priceDirection": "Stable to rising",
+    "bestFor": ["Executives", "Investors", "Short-stay operators"]
+  },
+  {
+    "area": "Ajah",
+    "safetyScore": 7.2,
+    "vibeTag": "Growing, practical, and value-led",
+    "amenities": ["Novare Mall", "Abraham Adesanya Estate", "Lakowe Lakes access", "Sangotedo market"],
+    "commuteTimes": { "Lekki Phase 1": "25-55 min", "Victoria Island": "45-90 min", "Epe": "35-60 min" },
+    "floodRisk": "Medium to high in select pockets",
+    "powerSupply": "Variable, estate backup recommended",
+    "internet": "Fiber in newer estates",
+    "priceDirection": "Rising",
+    "bestFor": ["Growing families", "Value buyers", "Developers"]
+  },
+  {
+    "area": "Yaba",
+    "safetyScore": 7.6,
+    "vibeTag": "Creative, academic, and transit-friendly",
+    "amenities": ["University of Lagos", "Yaba College of Technology", "E-Centre", "Sabo market"],
+    "commuteTimes": { "Lagos Island": "25-45 min", "Ikeja GRA": "30-50 min", "Victoria Island": "35-65 min" },
+    "floodRisk": "Medium",
+    "powerSupply": "Moderate with building backup",
+    "internet": "Fiber and broadband available",
+    "priceDirection": "Rising",
+    "bestFor": ["Students", "Tech workers", "Rental investors"]
+  },
+  {
+    "area": "Ikeja GRA",
+    "safetyScore": 8.5,
+    "vibeTag": "Leafy, established, and airport-close",
+    "amenities": ["Radisson Blu Ikeja", "Maryland Mall access", "Lagos Country Club", "Airport corridor"],
+    "commuteTimes": { "Murtala Muhammed Airport": "10-20 min", "Yaba": "30-50 min", "Lagos Island": "45-75 min" },
+    "floodRisk": "Low",
+    "powerSupply": "Good with private backup",
+    "internet": "Fiber available",
+    "priceDirection": "Stable to rising",
+    "bestFor": ["Executives", "Frequent travellers", "Families"]
+  },
+  {
+    "area": "Magodo",
+    "safetyScore": 8.0,
+    "vibeTag": "Quiet, gated, and family-first",
+    "amenities": ["Magodo Brooks Estate", "Shangisha access", "Omole Phase 2 access", "Mainland schools"],
+    "commuteTimes": { "Ikeja GRA": "20-35 min", "Yaba": "35-60 min", "Lagos Island": "55-90 min" },
+    "floodRisk": "Low to medium",
+    "powerSupply": "Good with estate support",
+    "internet": "Fiber in many estates",
+    "priceDirection": "Rising",
+    "bestFor": ["Families", "Mainland executives", "Long-term residents"]
+  },
+  {
+    "area": "Surulere",
+    "safetyScore": 7.4,
+    "vibeTag": "Central, cultural, and lived-in",
+    "amenities": ["National Stadium", "Leisure Mall", "Adeniran Ogunsanya shops", "Mainland transport links"],
+    "commuteTimes": { "Yaba": "15-30 min", "Lagos Island": "25-50 min", "Ikeja GRA": "35-60 min" },
+    "floodRisk": "Medium in select pockets",
+    "powerSupply": "Moderate",
+    "internet": "Broadband widely available",
+    "priceDirection": "Stable",
+    "bestFor": ["Creatives", "Central commuters", "Rental investors"]
+  }
+]

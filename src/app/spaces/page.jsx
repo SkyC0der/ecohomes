@@ -1,7 +1,7 @@
 "use client";
 import "./spaces.css";
-import { spacesData } from "./spaces.js";
-import { useRef, useEffect } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, Suspense } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,14 +9,45 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Nav from "@/components/Nav/Nav";
 import ConditionalFooter from "@/components/ConditionalFooter/ConditionalFooter";
 import Copy from "@/components/Copy/Copy";
-import { useViewTransition } from "@/hooks/useViewTransition";
+import BookingModal from "@/features/booking/BookingModal";
+import MyBookingsPanel from "@/features/booking/MyBookingsPanel";
+import PropertyCard from "@/features/listings/PropertyCard";
+import {
+  getAllProperties,
+  getFilteredProperties,
+} from "@/features/listings/propertyService";
+import SearchBar from "@/features/search/SearchBar";
+import FilterPanel from "@/features/search/FilterPanel";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const page = () => {
+const getFiltersFromSearchParams = (searchParams) => ({
+  query: searchParams.get("query") ?? "",
+  type: searchParams.get("type") ?? "",
+  area: searchParams.get("area") ?? "",
+  beds: searchParams.get("beds") ?? "",
+  minPrice: searchParams.get("minPrice") ?? "",
+  maxPrice: searchParams.get("maxPrice") ?? "",
+});
+
+const SpacesContent = () => {
   const spacesRef = useRef(null);
   const scrollTriggerInstances = useRef([]);
-  const { navigateWithTransition } = useViewTransition();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [selectedProperty, setSelectedProperty] = useState(null);
+  const [refreshBookings, setRefreshBookings] = useState(0);
+
+  const allProperties = useMemo(() => getAllProperties(), []);
+  const filters = useMemo(
+    () => getFiltersFromSearchParams(searchParams),
+    [searchParams]
+  );
+  const filteredProperties = useMemo(
+    () => getFilteredProperties(filters),
+    [filters]
+  );
 
   const cleanupScrollTriggers = () => {
     scrollTriggerInstances.current.forEach((instance) => {
@@ -84,7 +115,28 @@ const page = () => {
       window.removeEventListener("resize", handleResize);
       cleanupScrollTriggers();
     };
-  }, []);
+  }, [filteredProperties.length]);
+
+  const updateFilter = useCallback(
+    (key, value) => {
+      const params = new URLSearchParams(searchParams.toString());
+      if (!value) {
+        params.delete(key);
+      } else {
+        params.set(key, value);
+      }
+
+      const query = params.toString();
+      console.info("[filters] updated", key, value);
+      router.replace(`${pathname}${query ? `?${query}` : ""}`, { scroll: false });
+    },
+    [pathname, router, searchParams]
+  );
+
+  const clearFilters = useCallback(() => {
+    console.info("[filters] cleared");
+    router.replace(pathname, { scroll: false });
+  }, [pathname, router]);
 
   return (
     <>
@@ -97,79 +149,59 @@ const page = () => {
               <Copy delay={1}>
                 <h1>Private Listings</h1>
               </Copy>
-              <div className="prop-filters">
-                <div className="filter default">
-                  <Copy delay={1}>
-                    <p className="lg">All</p>
-                  </Copy>
-                </div>
-                <div className="filter">
-                  <Copy delay={1.1}>
-                    <p className="lg">Estates</p>
-                  </Copy>
-                </div>
-                <div className="filter">
-                  <Copy delay={1.2}>
-                    <p className="lg">Penthouses</p>
-                  </Copy>
-                </div>
-                <div className="filter">
-                  <Copy delay={1.3}>
-                    <p className="lg">Waterfront</p>
-                  </Copy>
-                </div>
+              <div className="spaces-controls">
+                <SearchBar
+                  value={filters.query}
+                  onChange={(value) => updateFilter("query", value)}
+                />
+                <FilterPanel
+                  filters={filters}
+                  onFilterChange={updateFilter}
+                  onClear={clearFilters}
+                  totalCount={allProperties.length}
+                  resultCount={filteredProperties.length}
+                />
               </div>
             </div>
           </div>
         </section>
         <section className="spaces-list">
           <div className="container" ref={spacesRef}>
-            {spacesData.map((space, index) => (
-              <a
-                key={space.id}
-                href={space.route}
-                className="space"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigateWithTransition(space.route);
-                }}
-              >
-                <div className="space-img">
-                  <img src={space.image} alt={space.name} />
-                </div>
-                <div className="space-info">
-                  <div className="prop-info-col">
-                    <div className="prop-date">
-                      <p>{space.date}</p>
-                    </div>
-                  </div>
-                  <div className="prop-info-col">
-                    <div className="prop-info-sub-col">
-                      <div className="prop-name">
-                        <h3>{space.name}</h3>
-                        <p className="lg">{space.location}</p>
-                      </div>
-                    </div>
-                    <div className="prop-info-sub-col">
-                      <div className="prop-client">
-                        <div className="prop-client-img">
-                          <img src={space.clientImage} alt={space.clientName} />
-                        </div>
-                        <div className="prop-client-name">
-                          <p>{space.clientName}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            ))}
+            {filteredProperties.length > 0 ? (
+              filteredProperties.map((property) => (
+                <PropertyCard
+                  key={property.id}
+                  property={property}
+                  onRequestViewing={setSelectedProperty}
+                />
+              ))
+            ) : (
+              <div className="spaces-empty">
+                <h3>No Lagos properties match these filters.</h3>
+                <button type="button" onClick={clearFilters}>
+                  Clear filters
+                </button>
+              </div>
+            )}
           </div>
         </section>
       </div>
+      <BookingModal
+        property={selectedProperty}
+        isOpen={Boolean(selectedProperty)}
+        onClose={() => setSelectedProperty(null)}
+        onBookingSaved={() => setRefreshBookings((value) => value + 1)}
+      />
+      <MyBookingsPanel refreshToken={refreshBookings} />
       <ConditionalFooter />
     </>
   );
 };
+
+const page = () => (
+  <Suspense fallback={null}>
+    <SpacesContent />
+  </Suspense>
+);
 
 export default page;

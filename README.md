@@ -1,6 +1,6 @@
 # Eco-Homes
 
-Luxury US real estate website concept built with Next.js, GSAP, and Lenis.
+Luxury Lagos real estate website concept built with Next.js, GSAP, and Lenis.
 
 ## Getting Started
 
