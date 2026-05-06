@@ -174,7 +174,7 @@
     "sqft": 3600,
     "location": "Magodo, Lagos",
     "area": "Magodo",
-    "images": ["/studio/about-hero.png", "/archive/archive-20.jpg", "/spotlight/spotlight-img-2.jpg"],
+    "images": ["/spaces/space-7.jpg", "/archive/archive-20.jpg", "/spotlight/spotlight-img-2.jpg"],
     "description": "A corner-position duplex with wider frontage, strong internal volume, and established estate services.",
     "available": true,
     "coordinates": { "lat": 6.62, "lng": 3.38 }

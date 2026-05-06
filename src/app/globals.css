@@ -28,6 +28,12 @@
   user-select: none;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 body {
   font-family: "Manrope", sans-serif;
   background-color: var(--bg-main);
